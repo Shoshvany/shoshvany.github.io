@@ -161,7 +161,7 @@
                     if (Number.isNaN(newZoomValue)) {
                         throw (new Error('newZoomValue NAN'))
                     }
-                    let scale = zoomValue / 100
+                    let scale = newZoomValue / 100
                     ph.style.transform = 'scale(' +scale + ')'
                     zoomValue = newZoomValue
                 }
