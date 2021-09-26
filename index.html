@@ -132,12 +132,18 @@
         <div class="form">
             <a href="http://www.origami-instructions.com/origami-place-card-with-stand.html" target="_blank">instructions</a>
         </div>
+        <div class="form">
+            <button id="printBtn" >Print</button>
+        </div>
+
         <script type="application/javascript">
             // Get the form and file field
             let form = document.querySelector('#upload');
             let file = document.querySelector('#file');
             let ph = document.querySelector('#ph');
             let zoom = document.querySelector('#zoom');
+            let printBtn = document.querySelector('#printBtn');
+            
             let img = document.createElement('img');
             ph.append(img);
 
@@ -169,6 +175,12 @@
                     zoom.value = zoomValue;
                 }
             }
+            function handlePrint(){
+                window.print()
+            }
+            
+            
+            printBtn.addEventListener('click', handlePrint);
             form.addEventListener('submit', handleSubmit);
             zoom.addEventListener('change', handleZoomChange);
         </script>
