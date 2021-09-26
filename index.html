@@ -1,23 +1,7 @@
 <html>
     <head>
         <style>
-            @media print {
-                body * {
-                    visibility: hidden;
-                }
 
-                #app, #app * {
-                    visibility: visible;
-                }
-
-                #app {
-                    position: fixed;
-                    width: 100vw;
-                    height: 100vw;
-                    overflow: hidden;
-
-                }
-            }
 
             .form {
                 position: relative;
@@ -31,17 +15,17 @@
 
             #app {
                 position: absolute;
-                width: 100vw;
-                height: 100vh;
+                width: 100%;
+                height: 100%;
             }
 
             #ph {
                 display: flex;
                 position: absolute;
-                top: 33vh;
-                left: 24vw;
-                right: 24vw;
-                bottom: 34vh;
+                top: 139px;
+                left: 71px;
+                right: 71px;
+                bottom: 143px;
                 align-self: center;
             }
 
@@ -55,9 +39,9 @@
             #leftDiag {
                 position: absolute;
                 left: 0;
-                top: 65vh;
+                top: 273px;
+                right: 148px;
                 bottom: 0;
-                right: 50vw;
                 border-top: black 1px dotted;
                 transform: skewY(45deg);
                 transform-origin: bottom left;
@@ -65,8 +49,8 @@
 
             #rightDiag {
                 position: absolute;
-                left: 50vw;
-                top: 65vh;
+                left: 148px;
+                top: 273px;
                 bottom: 0;
                 right: 0;
                 border-top: black 1px dotted;
@@ -76,7 +60,7 @@
 
             #leftLine {
                 position: absolute;
-                left: 25vw;
+                left: 74px;
                 top: 0;
                 bottom: 0;
                 width: 0;
@@ -87,7 +71,7 @@
                 position: absolute;
                 left: 0;
                 right: 0;
-                top: 34vh;
+                top: 143px;
                 height: 0;
                 border-top: black 1px dotted;
             }
@@ -96,18 +80,66 @@
                 position: absolute;
                 left: 0;
                 right: 0;
-                bottom: 35vh;
+                bottom: 147px;
                 height: 0;
                 border-top: black 1px dotted;
             }
 
             #rightLine {
                 position: absolute;
-                right: 25vw;
+                right: 74px;
                 top: 0;
                 bottom: 0;
                 width: 0;
                 border-left: black 1px dotted;
+            }
+
+            @media print {
+                body * {
+                    visibility: hidden;
+                }
+
+                #app, #app * {
+                    visibility: visible;
+                }
+
+                #app {
+                    position: fixed;
+                    overflow: hidden;
+                }
+
+                #ph {
+                    top: 33vh;
+                    left: 24vw;
+                    right: 24vw;
+                    bottom: 34vh;
+                }
+
+                #leftDiag {
+                    top: 64vh;
+                    right: 50vw;
+                }
+
+                #rightDiag {
+                    left: 50vw;
+                    top: 64vh;
+                }
+
+                #leftLine {
+                    left: 25vw;
+                }
+
+                #topLine {
+                    top: 34vh;
+                }
+
+                #bottomLine {
+                    bottom: 35vh;
+                }
+
+                #rightLine {
+                    right: 25vw;
+                }
             }
 
         </style>
@@ -128,8 +160,6 @@
         <form id="upload">
             <label htmlFor="file">File to upload</label>
             <input type="file" id="file" accept="image/*">
-
-            <button>Upload</button>
         </form>
     </div>
     <div class="form">
@@ -186,7 +216,7 @@
             window.print()
         }
 
-
+        file.addEventListener('change', handleSubmit)
         printBtn.addEventListener('click', handlePrint);
         form.addEventListener('submit', handleSubmit);
         zoom.addEventListener('change', handleZoomChange);
